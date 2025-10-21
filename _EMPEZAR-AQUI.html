@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Empezar Aquí - Portfolio Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .card h2 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .file-list {
+            list-style: none;
+            margin-left: 20px;
+        }
+        .file-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .file-list li:last-child {
+            border-bottom: none;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #fff;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+            transition: transform 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .btn-primary {
+            background: #667eea;
+            color: #fff;
+        }
+        .emoji {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        .steps {
+            counter-reset: step;
+        }
+        .step {
+            counter-increment: step;
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 25px;
+        }
+        .step::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #fff;
+            color: #667eea;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .feature {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji">🎨</span>Portfolio & Blog</h1>
+        <p class="subtitle">Proyecto completo con efectos parallax y glass effect</p>
+
+        <div class="card">
+            <h2>📂 Archivos del Proyecto</h2>
+            <ul class="file-list">
+                <li>📄 <strong>index.html</strong> - Página principal del portafolio</li>
+                <li>📄 <strong>blog.html</strong> - Lista de posts del blog</li>
+                <li>📄 <strong>post.html</strong> - Página del post individual</li>
+                <li>📁 <strong>css/style.css</strong> - TODOS los estilos en un solo archivo</li>
+                <li>⚡ <strong>js/script.js</strong> - Efectos parallax y animaciones</li>
+                <li>📁 <strong>images/</strong> - Carpeta para tus imágenes</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>✨ Efectos Incluidos</h2>
+            <div>
+                <span class="feature">Parallax Scroll</span>
+                <span class="feature">Glass Effect</span>
+                <span class="feature">Reveal Animations</span>
+                <span class="feature">Smooth Scroll</span>
+                <span class="feature">Hover Effects</span>
+                <span class="feature">Responsive Design</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🚀 Pasos para Empezar</h2>
+            <div class="steps">
+                <div class="step">
+                    <strong>Abrir en navegador</strong><br>
+                    Abre index.html para ver el portafolio
+                </div>
+                <div class="step">
+                    <strong>Personalizar contenido</strong><br>
+                    Cambia "TU NOMBRE" y actualiza textos
+                </div>
+                <div class="step">
+                    <strong>Agregar imágenes</strong><br>
+                    Coloca tus fotos en la carpeta images/
+                </div>
+                <div class="step">
+                    <strong>Modificar colores</strong><br>
+                    Edita variables CSS en style.css (línea 8)
+                </div>
+                <div class="step">
+                    <strong>Subir a GitHub Pages</strong><br>
+                    Sigue las instrucciones en README.md
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📖 Documentación</h2>
+            <p style="margin-bottom: 20px;">Lee estos archivos para más información:</p>
+            <ul class="file-list">
+                <li>📘 <strong>README.md</strong> - Documentación completa</li>
+                <li>📋 <strong>INSTRUCCIONES.txt</strong> - Guía rápida</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="index.html" class="btn btn-primary">Ver Portfolio</a>
+            <a href="blog.html" class="btn">Ver Blog</a>
+            <a href="post.html" class="btn">Ver Post</a>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; opacity: 0.8;">
+            <p>¿Necesitas ayuda? Revisa el README.md</p>
+            <p style="margin-top: 10px;">¡Buena suerte con tu portfolio! 🎉</p>
+        </div>
+    </div>
+</body>
+</html>

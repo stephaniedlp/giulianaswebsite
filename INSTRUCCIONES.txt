@@ -1,0 +1,103 @@
+==========================================
+  PORTFOLIO & BLOG - PROYECTO COMPLETO
+==========================================
+
+✅ ARCHIVOS CREADOS:
+
+📄 HTML (3 archivos):
+   ├── index.html      → Página principal del portafolio
+   ├── blog.html       → Lista de posts del blog
+   └── post.html       → Post individual
+
+🎨 CSS (1 archivo):
+   └── css/style.css   → TODOS los estilos en un solo archivo
+                         (portafolio + blog + post)
+
+⚡ JAVASCRIPT (1 archivo):
+   └── js/script.js    → Efectos parallax y animaciones
+
+📁 CARPETAS:
+   └── images/         → Aquí van tus imágenes
+
+==========================================
+  EFECTOS INCLUIDOS
+==========================================
+
+✨ Parallax en scroll
+✨ Animaciones reveal
+✨ Glass effect en cards
+✨ Hover effects
+✨ Smooth scroll
+✨ Responsive design
+✨ Navbar animado
+
+==========================================
+  CÓMO EMPEZAR
+==========================================
+
+1. DESCOMPRIME el archivo portfolio-project.zip
+
+2. ABRE index.html en tu navegador para ver el portafolio
+
+3. PERSONALIZA:
+   - Cambia "TU NOMBRE" por tu nombre real
+   - Actualiza el contenido de cada sección
+   - Agrega tus imágenes en la carpeta images/
+   - Modifica colores en css/style.css (busca :root)
+
+4. PARA LAS FUENTES (Goldman + Encode Sans Expanded):
+   - Ya tienes las fuentes del proyecto anterior
+   - Copia la carpeta fonts/ a la raíz del proyecto
+   - Descomenta las líneas de @font-face en style.css
+
+==========================================
+  ESTRUCTURA DE COLORES
+==========================================
+
+En css/style.css línea 8-14 encontrarás:
+
+:root {
+    --color-primary: #1a1a1a;    ← Color principal
+    --color-accent: #0066ff;     ← Color de acento
+    --color-bg: #f5f5f5;         ← Fondo general
+}
+
+Cámbialos a tu gusto!
+
+==========================================
+  AGREGAR IMÁGENES
+==========================================
+
+Reemplaza los placeholders:
+
+ANTES:
+<div class="image-placeholder">Tu Foto</div>
+
+DESPUÉS:
+<img src="images/foto.jpg" alt="Descripción">
+
+==========================================
+  SUBIR A GITHUB PAGES
+==========================================
+
+1. Crea un repositorio en GitHub
+2. Sube todos los archivos
+3. Ve a Settings → Pages
+4. Selecciona rama "main"
+5. ¡Listo! Tu sitio estará online
+
+==========================================
+  ARCHIVOS IMPORTANTES
+==========================================
+
+README.md         → Documentación completa
+INSTRUCCIONES.txt → Este archivo
+.gitignore        → Para control de versiones
+
+==========================================
+
+¿Necesitas ayuda? Revisa el README.md
+
+¡Éxito con tu portfolio! 🚀
+
+==========================================
