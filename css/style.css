@@ -231,7 +231,6 @@ a {
 
 /* Collage Layout */
 .collage-1 {
-    background-image: url('/images/archivefolderclip.avif');
     grid-column: 1 / 3;
     grid-row: 1 / 3;
       background-size: cover;
@@ -239,7 +238,7 @@ a {
 }
 
 .collage-2 {
-    background-image: url('/images/clothes.avif');
+    background-image: url('images/clothes.avif');
     grid-column: 3 / 5;
       background-size: cover;
     background-position: center;
