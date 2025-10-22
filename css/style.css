@@ -304,7 +304,7 @@ a {
 .hero-title {
     font-family: var(--font-secondary);
     font-size: clamp(3rem, 8vw, 5rem);
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.1;
     color: var(--color-primary);
   
@@ -452,18 +452,18 @@ a {
 .work-info h3 {
     font-family: var(--font-secondary);
     font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--color-primary);
 }
 
 .work-info p {
-    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 8px;
 }
 
 .work-year {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(26, 26, 211, 0.6);
 }
 
 /* === CONTACT SECTION === */
@@ -481,9 +481,9 @@ a {
 
 .contact-text {
     font-size: 1.3rem;
-    margin-bottom: 40px;
+    margin: 2rem;
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--color-primary);
 }
 
 .contact-email {
@@ -492,7 +492,7 @@ a {
     display: block;
     margin-bottom: 40px;
     transition: var(--transition);
-    color: #fff;
+    color: #450000;
 }
 
 .contact-email:hover {
@@ -508,7 +508,7 @@ a {
 .social-links a {
     font-weight: 600;
     transition: var(--transition);
-    color: #fff;
+    color: var(--color-accent);
 }
 
 .social-links a:hover {
@@ -521,7 +521,7 @@ a {
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.18);
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(10, 10, 10, 0.6);
 }
 
 /* === ANIMATIONS === */
@@ -564,12 +564,12 @@ a {
 /* === RESPONSIVE === */
 @media (max-width: 968px) {
     .nav-container {
-        padding: 15px 20px;
+       padding: 0.6rem;
     }
     
     .nav-menu {
-        gap: 20px;
-        font-size: 0.85rem;
+        gap: 10px;
+        font-size: 0.65rem;
     }
     
     .container,
@@ -591,6 +591,8 @@ a {
     }
     
     .collage-container {
+        gap: 10px;
+        top: 80px;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(4, 1fr);
     }
@@ -624,11 +626,14 @@ a {
         grid-column: 3 / 4;
         grid-row: 3 / 4;
     }
+    .contact-email{
+        font-size: larger;
+    }
 }
 
 @media (max-width: 640px) {
     .hero-title {
-        font-size: 2.5rem;
+        /* font-size: 2.5rem; */
     }
     
     .section-title {
