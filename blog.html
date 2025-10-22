@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Tu Nombre</title>
+    <title>Blog - Giuliana De La Puente</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="nav">
+    <!-- Music Player -->
+    <div class="music-control glass-card" id="musicControl">
+        <button id="musicToggle" class="music-button">
+            <span class="play-icon">▶</span>
+            <span class="pause-icon" style="display: none;">⏸</span>
+        </button>
+        <span class="music-text">Music</span>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="backgroundMusic" loop>
+        <source src="music/background.mp3" type="audio/mpeg">
+    </audio>
+
+    <nav class="nav glass-nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">TU NOMBRE</a>
+            <a href="index.html" class="nav-logo">Digital Diaries</a>
             <ul class="nav-menu">
                 <li><a href="index.html#about" class="nav-link">About</a></li>
                 <li><a href="index.html#work" class="nav-link">Work</a></li>
@@ -20,17 +34,19 @@
     </nav>
 
     <section class="blog-hero parallax-section">
-        <div class="parallax-bg" data-speed="0.5"></div>
-        <div class="hero-content">
-            <h1 class="hero-title fade-in">Blog</h1>
-            <p class="hero-subtitle fade-in" data-delay="0.2">
-                Thoughts, insights, and creative musings
-            </p>
+        <div class="container">
+            <div class="hero-glass-card glass-card fade-in">
+                <h1 class="hero-title">Blog</h1>
+                <p class="hero-subtitle">
+                    Thoughts on creativity, design, and storytelling
+                </p>
+            </div>
         </div>
     </section>
 
     <section class="blog-section">
         <div class="container">
+            <!-- Featured Post -->
             <article class="featured-post glass-card reveal-fade">
                 <div class="post-image">
                     <div class="image-placeholder">Featured Image</div>
@@ -38,69 +54,159 @@
                 </div>
                 <div class="post-content">
                     <div class="post-meta">
-                        <span class="post-date">21 Oct 2025</span>
-                        <span class="post-read-time">5 min read</span>
+                        <span class="post-date">22 Oct 2025</span>
+                        <span class="post-category">Creative Direction</span>
                     </div>
                     <h2 class="post-title">
-                        <a href="post.html">The Future of Brand Storytelling in 2025</a>
+                        <a href="post.html">The Art of Visual Storytelling in Modern Branding</a>
                     </h2>
                     <p class="post-excerpt">
-                        Una exploración profunda sobre cómo las marcas están evolucionando 
-                        su narrativa para conectar con audiencias más conscientes...
+                        Exploring how visual narratives shape brand identity and create emotional connections 
+                        with audiences in the digital age. A deep dive into the creative process.
                     </p>
-                    <a href="post.html" class="read-more">Leer más →</a>
+                    <a href="post.html" class="read-more">
+                        Read More <span>→</span>
+                    </a>
                 </div>
             </article>
 
+            <!-- Blog Grid -->
             <div class="blog-grid">
-                <article class="blog-post glass-card reveal-fade">
+                <article class="glass-card reveal-fade">
                     <div class="post-image">
                         <div class="image-placeholder">Post Image</div>
+                        <span class="post-tag">Design</span>
                     </div>
                     <div class="post-content">
                         <div class="post-meta">
                             <span class="post-date">18 Oct 2025</span>
-                            <span class="post-read-time">3 min</span>
+                            <span class="post-category">Design Trends</span>
                         </div>
                         <h3 class="post-title">
-                            <a href="post.html">Creative Direction: Finding Your Visual Voice</a>
+                            <a href="post.html">Minimalism in 2025: Less is More</a>
                         </h3>
-                        <p class="post-excerpt">Descubre cómo desarrollar una identidad visual única...</p>
-                        <a href="post.html" class="read-more">Leer más →</a>
+                        <p class="post-excerpt">
+                            How minimalist design principles are evolving and why simplicity 
+                            continues to dominate modern aesthetics.
+                        </p>
+                        <a href="post.html" class="read-more">
+                            Read More <span>→</span>
+                        </a>
                     </div>
                 </article>
 
-                <article class="blog-post glass-card reveal-fade">
+                <article class="glass-card reveal-fade">
                     <div class="post-image">
                         <div class="image-placeholder">Post Image</div>
+                        <span class="post-tag">Copywriting</span>
                     </div>
                     <div class="post-content">
                         <div class="post-meta">
                             <span class="post-date">15 Oct 2025</span>
-                            <span class="post-read-time">4 min</span>
+                            <span class="post-category">Writing</span>
                         </div>
                         <h3 class="post-title">
-                            <a href="post.html">Copywriting Tips from the Pros</a>
+                            <a href="post.html">Words That Sell: The Power of Emotional Copy</a>
                         </h3>
-                        <p class="post-excerpt">Las técnicas que uso diariamente para crear copy...</p>
-                        <a href="post.html" class="read-more">Leer más →</a>
+                        <p class="post-excerpt">
+                            Understanding how to craft copy that resonates with audiences 
+                            on an emotional level and drives action.
+                        </p>
+                        <a href="post.html" class="read-more">
+                            Read More <span>→</span>
+                        </a>
                     </div>
                 </article>
 
-                <article class="blog-post glass-card reveal-fade">
+                <article class="glass-card reveal-fade">
                     <div class="post-image">
                         <div class="image-placeholder">Post Image</div>
+                        <span class="post-tag">Strategy</span>
                     </div>
                     <div class="post-content">
                         <div class="post-meta">
                             <span class="post-date">12 Oct 2025</span>
-                            <span class="post-read-time">6 min</span>
+                            <span class="post-category">Brand Strategy</span>
                         </div>
                         <h3 class="post-title">
-                            <a href="post.html">Building Brands That Last</a>
+                            <a href="post.html">Building a Brand Identity from Scratch</a>
                         </h3>
-                        <p class="post-excerpt">¿Qué hace que algunas marcas permanezcan relevantes...</p>
-                        <a href="post.html" class="read-more">Leer más →</a>
+                        <p class="post-excerpt">
+                            A comprehensive guide to developing a strong brand identity 
+                            that stands out in a crowded marketplace.
+                        </p>
+                        <a href="post.html" class="read-more">
+                            Read More <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="glass-card reveal-fade">
+                    <div class="post-image">
+                        <div class="image-placeholder">Post Image</div>
+                        <span class="post-tag">Inspiration</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-date">08 Oct 2025</span>
+                            <span class="post-category">Creative Process</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="post.html">Finding Inspiration in Everyday Moments</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            How to stay creatively inspired and find design ideas 
+                            in the world around us.
+                        </p>
+                        <a href="post.html" class="read-more">
+                            Read More <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="glass-card reveal-fade">
+                    <div class="post-image">
+                        <div class="image-placeholder">Post Image</div>
+                        <span class="post-tag">Digital</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-date">05 Oct 2025</span>
+                            <span class="post-category">Social Media</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="post.html">Creating Engaging Content for Instagram</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            Tips and strategies for building a strong presence 
+                            on Instagram in 2025.
+                        </p>
+                        <a href="post.html" class="read-more">
+                            Read More <span>→</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="glass-card reveal-fade">
+                    <div class="post-image">
+                        <div class="image-placeholder">Post Image</div>
+                        <span class="post-tag">Career</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-date">01 Oct 2025</span>
+                            <span class="post-category">Freelance Life</span>
+                        </div>
+                        <h3 class="post-title">
+                            <a href="post.html">The Freelance Journey: Year Three Reflections</a>
+                        </h3>
+                        <p class="post-excerpt">
+                            Lessons learned, challenges faced, and wins celebrated 
+                            in my third year as a freelance creative.
+                        </p>
+                        <a href="post.html" class="read-more">
+                            Read More <span>→</span>
+                        </a>
                     </div>
                 </article>
             </div>
@@ -113,7 +219,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Tu Nombre. All rights reserved.</p>
+            <p>&copy; 2025 Pagee.nott.found. All rights reserved.</p>
         </div>
     </footer>
 

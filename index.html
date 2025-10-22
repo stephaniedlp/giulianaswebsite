@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Nombre - Creative Director & Copywriter</title>
+    <title>Giuliana De La Puente - Creative Director & Stylist</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="nav">
+    <!-- Music Player -->
+    <div class="music-control glass-card" id="musicControl">
+        <button id="musicToggle" class="music-button">
+            <span class="play-icon">▶</span>
+            <span class="pause-icon" style="display: none;">⏸</span>
+        </button>
+        <span class="music-text">Music</span>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="backgroundMusic" loop>
+        <source src="music/background.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <nav class="nav glass-nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">Digital Print</a>
+            <a href="index.html" class="nav-logo">Digital Diaries</a>
             <ul class="nav-menu">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#work" class="nav-link">Work</a></li>
@@ -19,34 +34,51 @@
         </div>
     </nav>
 
-    <section id="hero" class="hero parallax-section">
-        <div class="parallax-bg" data-speed="0.5"></div>
-        <div class="hero-content">
-            <div>
-
-                <h1 class="hero-title fade-in">
-                    Creative Director <br>
-                    <span class="highlight">& Stylist</span>
-                </h1>
-                <p class="hero-subtitle fade-in" data-delay="0.2">
-                    Crafting compelling narratives for brands that matter
-                </p>
-                <a href="#work" class="cta-button fade-in" data-delay="0.4">
-                    View My Work
-                </a>
+    <!-- Hero Section with Collage -->
+    <section id="hero" class="hero-collage">
+        <div class="collage-container">
+            <div class="collage-item collage-1">
+                <div src="images/clip2.avif" class="image-placeholder"></div>
+            </div>
+            <div class="collage-item collage-2">
+                <div src="images/archivefolderclip.avif"  class="image-placeholder"></div>
+            </div>
+            <div class="collage-item collage-3">
+                <div src="images/clothes.avif" class="image-placeholder"></div>
+            </div>
+            <div class="collage-item collage-4">
+                <div src="images/outfit.avif" class="image-placeholder"></div>
+            </div>
+            <div class="collage-item collage-5">
+                <div class="image-placeholder"></div>
+            </div>
+            <div class="collage-item collage-6">
+                <div class="image-placeholder">Image 6</div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <span>...</span>
-            <div class="scroll-line"></div>
+        
+        <!-- Glass Card con texto principal -->
+        <div class="hero-glass-card glass-card fade-in">
+            <h1 class="hero-title">
+                Creative Director <br>
+                <span class="highlight">& Stylist</span>
+            </h1>
+            <p class="hero-subtitle">
+                Crafting compelling narratives for brands that matter
+            </p>
+            <a href="#work" class="cta-button">
+                View My Work
+            </a>
         </div>
+        
+      
     </section>
 
     <section id="about" class="about parallax-section">
         <div class="container">
             <div class="about-content">
                 <div class="about-image reveal-scale">
-                    <div class="image-placeholder">Tu Foto</div>
+                    <div   class="image-placeholder"><img src="/images/giuls.avif"/> </div>
                 </div>
                 <div class="about-text">
                     <h2 class="section-title reveal-text">About</h2>
@@ -69,20 +101,20 @@
 
     <section id="work" class="work parallax-section">
         <div class="container">
-            <h2 class="section-title reveal-text">Selected Work</h2>
+            <h2 class="section-title reveal-text">Instagram Work</h2>
             <div class="work-grid">
-                <article class="work-item reveal-slide">
+                <article class="work-item reveal-slide glass-card">
                     <div class="work-image parallax-card" data-speed="0.9">
-                        <div class="image-placeholder">Project 1</div>
+                        <div class="image-placeholder">Creative Director</div>
                     </div>
                     <div class="work-info">
-                        <h3>Nombre del Proyecto</h3>
+                        <h3>Personal Brand</h3>
                         <p>Brand Strategy & Creative Direction</p>
                         <span class="work-year">2024</span>
                     </div>
                 </article>
 
-                <article class="work-item reveal-slide">
+                <article class="work-item reveal-slide glass-card">
                     <div class="work-image parallax-card" data-speed="0.8">
                         <div class="image-placeholder">Project 2</div>
                     </div>
@@ -98,12 +130,12 @@
 
     <section id="contact" class="contact parallax-section">
         <div class="container">
-            <div class="contact-content">
+            <div class="contact-content glass-card">
                 <h2 class="section-title reveal-text">Let's Work Together</h2>
                 <p class="contact-text reveal-fade">
                     ¿Tienes un proyecto en mente? Me encantaría escucharlo.
                 </p>
-                <a href="mailto:  giulianadlp@gmail.com" class="contact-email reveal-fade">
+                <a href="mailto:giulianadlp@gmail.com" class="contact-email reveal-fade">
                     giulianadlp@gmail.com
                 </a>
                 <div class="social-links reveal-fade">

@@ -1,258 +1,209 @@
-// ===================================
-// PORTFOLIO & BLOG - JAVASCRIPT
-// ===================================
+// ============================================
+// PORTFOLIO INTERACTIVE FEATURES
+// ============================================
 
-// === PARALLAX EFFECT ===
-function initParallax() {
-    const parallaxElements = document.querySelectorAll('[data-speed]');
+// === MUSIC PLAYER ===
+document.addEventListener('DOMContentLoaded', function() {
+    const music = document.getElementById('backgroundMusic');
+    const musicControl = document.getElementById('musicControl');
+    const musicToggle = document.getElementById('musicToggle');
+    const playIcon = document.querySelector('.play-icon');
+    const pauseIcon = document.querySelector('.pause-icon');
     
-    window.addEventListener('scroll', () => {
-        parallaxElements.forEach(el => {
-            const speed = parseFloat(el.getAttribute('data-speed'));
-            const yPos = -(window.pageYOffset * speed);
-            el.style.transform = `translateY(${yPos}px)`;
-        });
-    });
-}
-
-// === SCROLL REVEAL ANIMATIONS ===
-function initScrollReveal() {
-    const revealElements = document.querySelectorAll(
-        '.reveal-fade, .reveal-text, .reveal-scale, .reveal-slide'
-    );
+    let isPlaying = false;
     
-    const revealOnScroll = () => {
-        revealElements.forEach(el => {
-            const elementTop = el.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < window.innerHeight - elementVisible) {
-                el.classList.add('visible');
-            }
-        });
-    };
-    
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Check on load
-}
-
-// === SMOOTH SCROLL FOR ANCHOR LINKS ===
-function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            
-            // Skip if it's just "#"
-            if (href === '#') return;
-            
-            e.preventDefault();
-            const target = document.querySelector(href);
-            
-            if (target) {
-                const offsetTop = target.offsetTop - 80; // Account for fixed nav
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
-
-// === FADE IN ANIMATION WITH DELAY ===
-function initFadeIn() {
-    const fadeElements = document.querySelectorAll('.fade-in');
-    
-    fadeElements.forEach((el, index) => {
-        const delay = el.getAttribute('data-delay') || 0;
-        el.style.animationDelay = `${delay}s`;
-    });
-}
-
-// === NAVBAR BACKGROUND ON SCROLL ===
-function initNavbarScroll() {
-    const nav = document.querySelector('.nav');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.style.background = 'rgba(255, 255, 255, 0.98)';
-            nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            nav.style.background = 'rgba(255, 255, 255, 0.95)';
-            nav.style.boxShadow = 'none';
-        }
-    });
-}
-
-// === LOAD MORE BUTTON ===
-function initLoadMore() {
-    const loadMoreBtn = document.querySelector('.glass-button');
-    
-    if (loadMoreBtn) {
-        loadMoreBtn.addEventListener('click', () => {
-            // Add your load more logic here
-            console.log('Load more posts...');
-            
-            // Example: Show loading state
-            loadMoreBtn.textContent = 'Loading...';
-            
-            // Simulate loading
-            setTimeout(() => {
-                loadMoreBtn.textContent = 'Load More Posts';
-                // Add new posts to .blog-grid here
-            }, 1000);
+    // Función para reproducir música
+    function playMusic() {
+        music.play().then(() => {
+            isPlaying = true;
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+        }).catch(error => {
+            console.log('Error al reproducir música:', error);
         });
     }
-}
-
-// === PARALLAX CARD EFFECT ON MOUSE MOVE ===
-function initCardParallax() {
-    const cards = document.querySelectorAll('.parallax-card');
     
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-            
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-        });
-    });
-}
-
-// === CURSOR FOLLOW EFFECT (OPTIONAL) ===
-function initCursorEffect() {
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
+    // Función para pausar música
+    function pauseMusic() {
+        music.pause();
+        isPlaying = false;
+        playIcon.style.display = 'block';
+        pauseIcon.style.display = 'none';
+    }
     
-    cursor.style.cssText = `
-        width: 20px;
-        height: 20px;
-        border: 2px solid #1a1a1a;
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transition: transform 0.2s, opacity 0.2s;
-        opacity: 0;
-    `;
-    
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX - 10 + 'px';
-        cursor.style.top = e.clientY - 10 + 'px';
-        cursor.style.opacity = '1';
+    // Toggle music on button click
+    musicControl.addEventListener('click', function() {
+        if (isPlaying) {
+            pauseMusic();
+        } else {
+            playMusic();
+        }
     });
     
-    document.addEventListener('mouseleave', () => {
-        cursor.style.opacity = '0';
-    });
+    // Intentar reproducir automáticamente al cargar la página
+    // Nota: algunos navegadores bloquean la reproducción automática
+    // hasta que el usuario interactúe con la página
+    setTimeout(() => {
+        playMusic();
+    }, 1000);
     
-    // Scale cursor on hover
-    const hoverElements = document.querySelectorAll('a, button, .work-item');
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'scale(1.5)';
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'scale(1)';
-        });
-    });
-}
-
-// === IMAGE LAZY LOADING ===
-function initLazyLoad() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                observer.unobserve(img);
-            }
-        });
-    });
-    
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// === ACTIVE NAV LINK ON SCROLL ===
-function initActiveNav() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    window.addEventListener('scroll', () => {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (window.pageYOffset >= sectionTop - 100) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-}
-
-// === INITIALIZE ALL ===
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Portfolio initialized!');
-    
-    initParallax();
-    initScrollReveal();
-    initSmoothScroll();
-    initFadeIn();
-    initNavbarScroll();
-    initLoadMore();
-    initCardParallax();
-    // initCursorEffect(); // Uncomment if you want custom cursor
-    initLazyLoad();
-    initActiveNav();
+    // Si el navegador bloquea la reproducción automática,
+    // reproducir después de cualquier clic del usuario
+    let hasInteracted = false;
+    document.addEventListener('click', function firstClick() {
+        if (!hasInteracted && !isPlaying) {
+            playMusic();
+            hasInteracted = true;
+        }
+    }, { once: true });
 });
 
-// === RESIZE HANDLER ===
-window.addEventListener('resize', () => {
-    // Reinitialize parallax on resize
-    initParallax();
+// === SMOOTH SCROLL ===
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
 });
 
-// === PERFORMANCE OPTIMIZATION ===
-// Throttle function for scroll events
-function throttle(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
+// === SCROLL ANIMATIONS ===
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
 
-// Apply throttle to scroll events if needed
-const throttledScroll = throttle(() => {
-    // Add throttled scroll logic here if needed
-}, 100);
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
 
-window.addEventListener('scroll', throttledScroll);
+// Observar todos los elementos con clases de animación
+document.querySelectorAll('.reveal-fade, .reveal-text, .reveal-scale, .reveal-slide').forEach(el => {
+    observer.observe(el);
+});
+
+// === PARALLAX EFFECT ===
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    
+    // Parallax para el background del hero
+    const parallaxBg = document.querySelector('.parallax-bg');
+    if (parallaxBg) {
+        parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+    
+    // Parallax para las tarjetas de trabajo
+    const parallaxCards = document.querySelectorAll('.parallax-card');
+    parallaxCards.forEach(card => {
+        const speed = card.getAttribute('data-speed') || 0.9;
+        const cardTop = card.getBoundingClientRect().top;
+        const cardOffset = cardTop - window.innerHeight;
+        if (cardOffset < 0) {
+            card.style.transform = `translateY(${cardOffset * (1 - speed)}px)`;
+        }
+    });
+    
+    // Efecto parallax para los items del collage
+    const collageItems = document.querySelectorAll('.collage-item');
+    collageItems.forEach((item, index) => {
+        const speed = 0.5 + (index * 0.1);
+        item.style.transform = `translateY(${scrolled * speed * 0.1}px)`;
+    });
+});
+
+// === ACTIVE NAV LINK ===
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', function() {
+    let current = '';
+    const scrollPosition = window.pageYOffset;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (scrollPosition >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// === NAVBAR BACKGROUND ON SCROLL ===
+const nav = document.querySelector('.glass-nav');
+let lastScroll = 0;
+
+window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 100) {
+        nav.style.background = 'rgba(255, 255, 255, 0.15)';
+        nav.style.boxShadow = '0 8px 32px 0 rgba(31, 38, 135, 0.37)';
+    } else {
+        nav.style.background = 'rgba(255, 255, 255, 0.1)';
+        nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+    }
+    
+    lastScroll = currentScroll;
+});
+
+// === COLLAGE HOVER EFFECT ===
+const collageItems = document.querySelectorAll('.collage-item');
+
+collageItems.forEach(item => {
+    item.addEventListener('mouseenter', function() {
+        // Aumentar opacidad del container al hacer hover
+        const container = document.querySelector('.collage-container');
+        container.style.opacity = '0.6';
+    });
+    
+    item.addEventListener('mouseleave', function() {
+        const container = document.querySelector('.collage-container');
+        container.style.opacity = '0.4';
+    });
+});
+
+// === LOADING ANIMATION ===
+window.addEventListener('load', function() {
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        document.body.style.transition = 'opacity 0.5s ease-in';
+        document.body.style.opacity = '1';
+    }, 100);
+});
+
+// === CURSOR EFFECT (OPCIONAL) ===
+// Descomentar si quieres un efecto de cursor personalizado
+/*
+const cursor = document.createElement('div');
+cursor.classList.add('custom-cursor');
+document.body.appendChild(cursor);
+
+document.addEventListener('mousemove', function(e) {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+document.querySelectorAll('a, button').forEach(element => {
+    element.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+    element.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+});
+*/
+
+console.log('✨ Portfolio loaded successfully!');
